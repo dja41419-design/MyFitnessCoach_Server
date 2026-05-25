@@ -22,11 +22,13 @@ namespace MyFitnessCoach_Server.Repositories
 			_context = context;
 		}
 
-		/// <summary>
-		/// 回傳 IQueryable，保留延遲執行，讓上層可繼續組合 Where/OrderBy 後才 materialize。
-		/// 使用 inline projection 讓 EF 可翻譯成 SQL，只 SELECT 需要的欄位。
-		/// </summary>
-		public IQueryable<ProductDto> GetAllQueryable()
+        /// <summary>
+        /// 回傳 IQueryable，保留延遲執行，讓上層可繼續組合 Where/OrderBy 後才 materialize。
+        /// 使用 inline projection 讓 EF 可翻譯成 SQL，只 SELECT 需要的欄位。
+        /// 回傳查詢物件以保留「延遲執行」特性，讓呼叫端可以繼續加上篩選或排序後，才真正對資料庫執行查詢。
+        /// 透過直接轉換格式，讓系統能自動產生最佳化的資料庫語法，只抓取需要的欄位以節省效能。
+        /// </summary>
+        public IQueryable<ProductDto> GetAllQueryable()
 		{
 			return _context.Products
 				.AsNoTracking()

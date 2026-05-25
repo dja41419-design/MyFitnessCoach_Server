@@ -12,10 +12,11 @@ namespace MyFitnessCoach_Server.Models.Services
 			_repository = repository;
 		}
 
-		/// <summary>
-		/// 回傳 IQueryable，上層可再疊加 Where/OrderBy 後才 materialize。
-		/// </summary>
-		public IQueryable<ProductDto> GetAllProducts(
+        /// <summary>
+        /// 回傳 IQueryable，上層可再疊加 Where/OrderBy 後才 materialize。
+        /// 回傳查詢物件，讓呼叫端可以繼續疊加篩選或排序條件後，才實際執行資料庫查詢。
+        /// </summary>
+        public IQueryable<ProductDto> GetAllProducts(
 			string? name = null,
 			int? categoryId = null,
 			decimal? minPrice = null,
