@@ -9,7 +9,7 @@
 ---
 
 ## 專案演示
-*   **展示影片**：[YouTube 連結](https://www.youtube.com/live/lV-r9YCWR1M?si=fEuAUQfGrfINzAiT)
+*   **展示影片**：[YouTube 連結](https://www.youtube.com/watch?v=lV-r9YCWR1M&t=1242s)
 *   **核心功能快轉**：
     *   訪客購物車登入後自動合併 (23:15–24:30)
     *   智能優惠券推薦與自動試算 (26:08–28:30)
@@ -74,6 +74,22 @@
 | **前端** | Vue 3 (Composition API), Vite, TypeScript, Element Plus, Vuetify, Vue Router, Chart.js |
 | **資料庫** | SQL Server |
 | **版本控制** | Git, GitHub |
+
+---
+
+## 快速上手 (Getting Started)
+
+本專案以 .NET 8 SDK 開發，可在專案資料夾下透過 CLI 啟動：
+
+```bash
+cd MyFitnessCoach_Server   # 進入專案資料夾（含 .csproj）
+dotnet restore             # 還原 NuGet 套件
+dotnet run                 # 啟動 Web API
+```
+
+啟動後會自動開啟瀏覽器並載入 Swagger 測試頁（預設 `http://localhost:5230/swagger`）。
+
+> 需求：.NET 8 SDK、SQL Server。資料庫連線字串設定於 `appsettings.json`。
 
 ---
 
